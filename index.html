@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ecommerce product page | Alfred Thompson Ovie</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="js/gsap.min.js"></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="hamburger">
+        <button class="openMenu">
+          <img src="images/icon-menu.svg" alt="">
+        </button>
+        <button class="closeMenu hide">
+          <img src="images/icon-close.svg" alt="">
+        </button>
+      </div>
+      <a href="/" class="brand">
+        <img src="images/logo.svg" alt="sneaker logo">
+      </a>
+
+      <ul class="nav__list hide">
+        <li class="list__item"><a href="#">Collections</a></li>
+        <li class="list__item"><a href="#">Men</a></li>
+        <li class="list__item"><a href="#">Women</a></li>
+        <li class="list__item"><a href="#">About</a></li>
+        <li class="list__item"><a href="#">Contact</a></li>
+      </ul>
+
+      <section class="profile">
+        <button type="button" class="cart">
+          <img src="images/icon-cart.svg" alt="cart button">
+        </button>
+        <img src="images/image-avatar.png" alt="profile picture" class="avatar">
+      </section>
+
+    </nav>
+    <section>
+      <section class="showcase">
+        <section class="display">
+          <section>
+            <img src="images/image-product-1.jpg" alt="" class="showcase--img">
+          </section>
+
+          <section class="controls">
+            <button type="button" class="previous">
+              <img src="images/icon-previous.svg" alt="next button">
+            </button>
+            <button type="button" class="next">
+              <img src="images/icon-next.svg" alt="next button">
+            </button>
+          </section>
+        </section>
+        <section class="thumbnailsContainer">
+          <img src="images/image-product-1-thumbnail.jpg" alt="" class="thumbnail" data-index="0">
+          <img src="images/image-product-2-thumbnail.jpg" alt="" class="thumbnail" data-index="1">
+          <img src="images/image-product-3-thumbnail.jpg" alt="" class="thumbnail" data-index="2">
+          <img src="images/image-product-4-thumbnail.jpg" alt="" class="thumbnail" data-index="3">
+        </section>
+        
+      </section>
+      <section class="details"></section>
+    </section>
+  </div>
+</body>
+</html>
