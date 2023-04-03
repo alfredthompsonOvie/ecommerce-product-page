@@ -8,6 +8,7 @@ const thumbnailsContainer = document.querySelector(".product__img__thumbnails");
 const thumbnails = document.querySelectorAll(".thumbnail");
 const thumbnailWrapper = document.querySelectorAll(".product__img__thumbnail");
 const showcaseImg = document.querySelector(".showcase");
+const productImgContainer = document.querySelector(".product__img");
 
 const counter = document.querySelector(".counter");
 const btnMinus = document.querySelector(".btn__minus");
@@ -26,10 +27,10 @@ closeMenu.addEventListener("click", () => {
 
 // !Gallery
 const gallery = [
-	"images/image-product-1.jpg",
-	"images/image-product-2.jpg",
-	"images/image-product-3.jpg",
-	"images/image-product-4.jpg",
+	{ img: "images/image-product-1.jpg", idx: 0 },
+	{ img: "images/image-product-2.jpg", idx: 1 },
+	{ img: "images/image-product-3.jpg", idx: 2 },
+	{ img: "images/image-product-4.jpg", idx: 3 },
 ];
 // const galleryThumbnail = [
 // 	"images/image-product-1-thumbnail.jpg",
@@ -39,55 +40,52 @@ const gallery = [
 // ];
 
 let currentIndex = 0;
-// console.log(gallery.length);\
 
 next.addEventListener("click", () => {
 	if (currentIndex === gallery.length - 1) {
 		currentIndex = -1;
 	}
 	currentIndex++;
-	showcaseImg.setAttribute("src", gallery[currentIndex]);
+	showcaseImg.setAttribute("src", gallery[currentIndex].img);
+	removeActive();
+	isActive(currentIndex);
 });
 previous.addEventListener("click", () => {
 	if (currentIndex === 0) {
 		currentIndex = gallery.length;
 	}
 	currentIndex--;
-	showcaseImg.setAttribute("src", gallery[currentIndex]);
+	showcaseImg.setAttribute("src", gallery[currentIndex].img);
+	removeActive();
+	isActive(currentIndex);
+	// if()
 });
-
-// thumbnails.forEach(thumbnail => {
-//   let thumbnailIdx = +thumbnail.dataset.index 
-//   if (thumbnailIdx === currentIndex) {
-//     console.log(thumbnailIdx);
-//     console.log(currentIndex);
-//     thumbnail.classList.add('activeImg');
-
-//   }
-// })
 thumbnailsContainer.addEventListener("click", (e) => {
-  // const target = e.target.closest('.thumbnail');
-  const target = e.target.closest('.product__img__thumbnail');
+	const target = e.target.closest(".product__img__thumbnail");
 	if (!target) return;
 	removeActive();
-	target.classList.add('is--active');
-	// currentImg.src = gallery[+target.dataset.index];
-	// currentIndex = +target.dataset.index;
+	target.classList.add("is--active");
 
-	showcaseImg.setAttribute("src", gallery[+e.target.dataset.index]);
-  currentIndex = +e.target.dataset.index;
-  // console.log(target);
+	showcaseImg.setAttribute("src", gallery[+e.target.dataset.index].img);
+	currentIndex = +e.target.dataset.index;
+	// console.log(target);
 	// console.log("currIdx", currentIndex);
 });
-const removeActive= ()=>{
-  // thumbnails.forEach(thumbnail => thumbnail.classList.remove('is--active')
-  // )
-  thumbnailWrapper.forEach(thumbnail => thumbnail.classList.remove('is--active')
-  )
-  }
-// thumbnails.forEach(tn=> tn.addEventListener("click", (e) => {
-//   console.log(e);
-// }))
+const removeActive = () => {
+	thumbnailWrapper.forEach((thumbnail) =>
+		thumbnail.classList.remove("is--active")
+	);
+};
+
+// active product img
+const isActive = (idx) => {
+	thumbnailWrapper.forEach((thumbnail) => {
+		if (+thumbnail.dataset.index === idx) {
+			thumbnail.classList.add("is--active");
+			// console.log(thumbnail);
+		}
+	});
+};
 
 // ---------------------------------------------
 let productQuantity = 0;
