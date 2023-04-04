@@ -24,6 +24,7 @@ const deleteCartItem = document.querySelector(".delete--cartItem");
 const cartBtn = document.querySelector(".btn--cart");
 const cartContainer = document.querySelector(".cart");
 const cartWrapper = document.querySelector(".cartWrapper");
+const numOfItems = document.querySelector(".numOfItems");
 
 const lightBox = document.querySelector(".lightBox");
 const closeLightBox = document.querySelector(".lightBox__closeBtn");
@@ -176,6 +177,8 @@ addToCart.addEventListener("click", () => {
 
 	productQuantity = 0;
 	counter.textContent = productQuantity;
+	numOfItems.classList.remove("is--cartEmpty");
+	numOfItems.textContent = cart.length;
 });
 
 const showCart = () => {
@@ -186,6 +189,7 @@ const showCart = () => {
 		cartEmptyMsg.classList.add("is--cartEmpty");
 		cartList.classList.remove("is--cartEmpty");
 		checkoutBtn.classList.remove("is--cartEmpty");
+		
 		cartList.innerHTML = "";
 		cart.forEach((item) => {
 			cartList.insertAdjacentHTML(
@@ -212,13 +216,16 @@ const showCart = () => {
 		return;
 	}
 	cartWrapper.classList.add("is--cartActive");
+	// numOfItems.classList.add("is--cartActive");
 };
 cartWrapper.addEventListener("click", (e) => {
 	if (e.target.closest(".cart")) return;
 
 	cartWrapper.classList.add("is--cartActive");
+	// numOfItems.classList.add("is--cartActive");
 });
 cartBtn.addEventListener("click", showCart);
+
 
 // if(deleteBtn)
 // deleteCartItem.addEventListener("click", () => {

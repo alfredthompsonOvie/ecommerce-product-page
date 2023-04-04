@@ -284,6 +284,18 @@ main {
   position: relative;
   z-index: 99;
 }
+.numOfItems {
+  background-color: var(--Orange);
+  padding: .3em .6em;
+  color: var(--White);
+  border-radius: 10px;
+  /* width: 1.2em;
+  height: 1.4em; */
+  font-size: 8px;
+  position: absolute;
+  top: -.5em;
+  right: -.8em;
+}
 /* cart */
 .cartWrapper {
   /* background-color: rgba(0, 0, 0, 0.2); */
