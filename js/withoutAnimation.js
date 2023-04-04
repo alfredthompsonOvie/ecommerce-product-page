@@ -1,7 +1,7 @@
 "use strict";
 const openMenu = document.querySelector(".openMenu");
 const closeMenu = document.querySelector(".closeMenu");
-const navListMobile = document.querySelector(".nav__list--mobile");
+const navList = document.querySelector(".nav__list");
 const next = document.querySelector("#next");
 const previous = document.querySelector("#previous");
 const showcaseImg = document.querySelector("#showcase");
@@ -38,52 +38,16 @@ const lightBoxThumbnailWrapper = document.querySelectorAll(
 	".product__img__thumbnail--lightBox"
 );
 // ! Open mobile nav---------------------------------------------------------
-
-const mobileNavTl = gsap.timeline({
-	// paused: true,
-	onReverseComplete: () => {
-		openMenu.classList.remove("hide");
-		closeMenu.classList.add("hide");
-		navListMobile.classList.add("hide");
-		gsap.to([".nav__list", ".list__item"], {
-			clearProps: "all",
-		});
-	},
-	onComplete: () => {
-		gsap.to([".nav__list", ".list__item"], {
-			clearProps: "all",
-		});
-	},
-	onStart: () => {
-		openMenu.classList.add("hide");
-		closeMenu.classList.remove("hide");
-		navListMobile.classList.remove("hide");
-	},
-	defaults: {
-		ease: "power4.out",
-		duration: 1,
-	},
+openMenu.addEventListener("click", () => {
+	openMenu.classList.add("hide");
+	closeMenu.classList.remove("hide");
+	navList.classList.remove("hide");
 });
-mobileNavTl
-	.from(".nav__list--mobile", {
-		xPercent: -100,
-		ease: "power4.out",
-	})
-	.from(
-		".list__item--mobile",
-		{
-			yPercent: 100,
-			autoAlpha: 0.01,
-			stagger: 0.2,
-		},
-		"-=.3"
-);
-mobileNavTl.reversed(true)
-function toggleMenu() {
-	mobileNavTl.reversed(!mobileNavTl.reversed());
-}
-openMenu.addEventListener("click", toggleMenu);
-closeMenu.addEventListener("click", toggleMenu);
+closeMenu.addEventListener("click", () => {
+	openMenu.classList.remove("hide");
+	closeMenu.classList.add("hide");
+	navList.classList.add("hide");
+});
 
 // !Gallery-----------------------------------------------------------------
 const gallery = [
@@ -96,23 +60,7 @@ const gallery = [
 let currentIndex = 0;
 const previewCurrentImg = () => {
 	showcaseImg.setAttribute("src", gallery[currentIndex].img);
-	// gsap.fromTo(showcaseImg, {
-	// 	// backgroundImage: "url(../images/blend/4.png)",
-	// 	x: 10,
-
-	// }, { x: 0 })
-	gsap.fromTo(showcaseImg, {
-		clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
-	}, {
-		clipPath: "polygon(100% 0, 0 0, 0 100%, 100% 100%)",
-		duration: 1.5
-	})
 	lightBoxShowcase.setAttribute("src", gallery[currentIndex].img);
-	gsap.fromTo(lightBoxShowcase, {
-		// backgroundImage: "url(../images/blend/4.png)",
-		x: 10,
-
-	}, {x:0})
 	removeActive();
 	isActive(currentIndex);
 };
@@ -144,17 +92,6 @@ const getThumbnail = (thumbnail) => {
 	thumbnail.classList.add("is--active");
 
 	showcaseImg.setAttribute("src", gallery[+thumbnail.dataset.index].img);
-
-	// !animation-------------------------------------------------------------
-	// !animation-------------------------------------------------------------
-	
-	gsap.fromTo(showcaseImg, {
-		clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
-	}, {
-		clipPath: "polygon(100% 0, 0 0, 0 100%, 100% 100%)",
-		duration: 1.5
-	})
-	
 	lightBoxShowcase.setAttribute("src", gallery[+thumbnail.dataset.index].img);
 	currentIndex = +thumbnail.dataset.index;
 	isActive(currentIndex);
@@ -242,7 +179,7 @@ const updateBasket = () => {
 		);
 	});
 };
-let id = 0; //!use uuid or some id generator-------------------------------
+let id = 0; //use uuid or some id generator
 addToCart.addEventListener("click", () => {
 	if (productQuantity === 0) return;
 	cart.unshift({
@@ -266,10 +203,6 @@ addToCart.addEventListener("click", () => {
 const showCart = () => {
 	if (cartWrapper.classList.contains("is--cartActive")) {
 		cartWrapper.classList.remove("is--cartActive");
-		gsap.from(cartWrapper, {
-			autoAlpha: 0.01,
-			x: 30,
-		})
 		if (!cart.length) return;
 
 		cartEmptyMsg.classList.add("is--cartEmpty");
@@ -277,16 +210,7 @@ const showCart = () => {
 		checkoutBtn.classList.remove("is--cartEmpty");
 		return;
 	}
-	gsap.to(cartWrapper, {
-		autoAlpha: 0.01,
-		x: 30,
-		onComplete: () => {
-			cartWrapper.classList.add("is--cartActive");
-			gsap.to(cartWrapper, {
-				clearProps: true
-			})
-		}
-	})
+	cartWrapper.classList.add("is--cartActive");
 };
 cartBtn.addEventListener("click", showCart);
 
@@ -295,17 +219,7 @@ cartWrapper.addEventListener("click", (e) => {
 	if (e.target.closest(".delete--cartItem")) return;
 	// console.log("cartWrapper");
 
-	// cartWrapper.classList.add("is--cartActive");
-	gsap.to(cartWrapper, {
-		autoAlpha: 0.01,
-		x: 30,
-		onComplete: () => {
-			cartWrapper.classList.add("is--cartActive");
-			gsap.to(cartWrapper, {
-				clearProps: true
-			})
-		}
-	})
+	cartWrapper.classList.add("is--cartActive");
 });
 
 // ! cart delete logic----------------------------------------------------------
@@ -330,85 +244,3 @@ cartContainer.addEventListener("click", (e) => {
 checkout.addEventListener("click", (e) => {
 	console.log("checkout");
 });
-// ! page animation-------------------------------------------------------------
-function animatePage() {
-	const tl = gsap.timeline({
-		defaults: {
-			ease: "power3.out",
-			duration: 1.5
-		}
-	});
-
-	tl
-		.from(["nav .grid__contents"], {
-			autoAlpha: 0.01,
-		})
-		.fromTo([".hamburger"], {
-			autoAlpha: 0.01,
-		}, {
-			autoAlpha: 1,
-		},"<")
-		.fromTo([".brand"], {
-			clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
-		}, {
-				clipPath: "polygon(100% 0, 0 0, 0 100%, 100% 100%)"
-		})
-		.from(".list__item", {
-			y: 30,
-			autoAlpha: 0.01,
-			stagger: 0.2
-		}, "<.8")
-		.from([".btn--cart", ".avatar"], {
-			xPercent: -50,
-			autoAlpha: 0.01,
-			stagger: 0.2
-		}, "<.8")
-		.from(".product__img", {
-			autoAlpha: 0.01,
-			xPercent: -20,
-		})
-		.fromTo(".subheading", {
-			clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
-		}, {
-				clipPath: "polygon(100% 0, 0 0, 0 100%, 100% 100%)"
-		})
-		.from([ ".heading"], {
-			yPercent: 80,
-			autoAlpha: 0.01,
-			stagger: 0.2,
-		}, "-=.8")
-		.fromTo(".product__details", {
-			y: 20,
-			clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)"
-		}, {
-			y: 0,
-			clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
-		})
-		.from([
-			".product__price--current > *",
-			".product__price--oldPrice",
-			
-		], {
-			xPercent: -100,
-			autoAlpha: 0.01,
-			stagger: 0.3
-		}, "<0.8")
-		.from([
-			".quantity__counter",
-			".addToCart__cta"
-		], {
-			yPercent: 50,
-			autoAlpha: 0.01,
-			stagger: 0.2,
-		})
-		.from([".product__img__thumbnails > *"], {
-			yPercent: 50,
-			autoAlpha: 0.01,
-			stagger: 0.2,
-		}, "<")
-		.from(".controls > *", {
-			autoAlpha: 0.01,
-			stagger: 0.2,
-		}, "<")
-}
-animatePage()

@@ -27,18 +27,77 @@
 							<img src="images/logo.svg" alt="sneaker logo" />
 						</a>
 
-						<ul class="nav__list hide">
-							<li class="list__item"><a href="#">Collections</a></li>
-							<li class="list__item"><a href="#">Men</a></li>
-							<li class="list__item"><a href="#">Women</a></li>
-							<li class="list__item"><a href="#">About</a></li>
-							<li class="list__item"><a href="#">Contact</a></li>
+						<ul class="nav__list--mobile hide">
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Collections</span>
+									<span>Collections</span>
+								</a>
+							</li>
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Men</span>
+									<span>Men</span>
+								</a>
+							</li>
+
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link"> 
+									<span class="linkDecor">Women</span>
+									<span>Women</span>
+								</a>
+							</li>
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">About</span>
+									<span>About</span>
+								</a>
+							</li>
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Contact</span>
+									<span>Contact</span>
+								</a>
+							</li>
+						</ul>
+						<ul class="nav__list--desktop">
+							<li class="list__item">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Collections</span>
+									<span>Collections</span>
+								</a>
+							</li>
+							<li class="list__item">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Men</span>
+									<span>Men</span>
+								</a>
+							</li>
+
+							<li class="list__item">
+								<a href="#" class="nav__link"> 
+									<span class="linkDecor">Women</span>
+									<span>Women</span>
+								</a>
+							</li>
+							<li class="list__item">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">About</span>
+									<span>About</span>
+								</a>
+							</li>
+							<li class="list__item">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Contact</span>
+									<span>Contact</span>
+								</a>
+							</li>
 						</ul>
 
 						<section class="profile">
 							<button type="button" class="btn--cart">
 								<img src="images/icon-cart.svg" alt="cart button" />
-                <span class="numOfItems is--cartEmpty"></span>
+								<span class="numOfItems is--cartEmpty"></span>
 							</button>
 							<img
 								src="images/image-avatar.png"
@@ -67,6 +126,7 @@
 										<button
 											type="button"
 											class="cta checkout__cta is--cartEmpty"
+											id="checkout"
 										>
 											Checkout
 										</button>
@@ -280,105 +340,6 @@
 						</section>
 					</section>
 				</main>
-				<!-- 
-          <section class="product grid">
-            <section class="grid__contents product__contents">
-              <section class="showcase">
-                <section class="display">
-                  <section>
-                    <img
-                      src="images/image-product-1.jpg"
-                      alt=""
-                      class="showcase--img"
-                    />
-                  </section>
-      
-                  <section class="controls">
-                    <button type="button" class="previous">
-                      <img src="images/icon-previous.svg" alt="next button" />
-                    </button>
-                    <button type="button" class="next">
-                      <img src="images/icon-next.svg" alt="next button" />
-                    </button>
-                  </section>
-                </section>
-                <section class="thumbnailsContainer">
-                  <img
-                    src="images/image-product-1-thumbnail.jpg"
-                    alt=""
-                    class="thumbnail"
-                    data-index="0"
-                  />
-                  <img
-                    src="images/image-product-2-thumbnail.jpg"
-                    alt=""
-                    class="thumbnail"
-                    data-index="1"
-                  />
-                  <img
-                    src="images/image-product-3-thumbnail.jpg"
-                    alt=""
-                    class="thumbnail"
-                    data-index="2"
-                  />
-                  <img
-                    src="images/image-product-4-thumbnail.jpg"
-                    alt=""
-                    class="thumbnail"
-                    data-index="3"
-                  />
-                </section>
-              </section>
-      
-              <section class="details product__details">
-                <section class="inner product_details__contents">
-                  <section>
-                    <small class="subheading">Sneaker Company</small>
-                    <h1 class="heading">Fall Limited Edition Sneakers</h1>
-                    <p class="product__description">
-                      These low-profile sneakers are your perfect casual wear
-                      companion. Featuring a durable rubber outer sole, they’ll
-                      withstand everything the weather can offer.
-                    </p>
-                  </section>
-                  <section class="price">
-                    <p class="newPrice__container">
-                      <span class="newPrice">$125.00</span>
-                      <span class="discount">50%</span>
-                    </p>
-                    <p class="oldPrice">
-                      <strike>$250.00</strike>
-                    </p>
-                  </section>
-                  <div class="quantity">
-                    <div class="quantity__counter">
-                      <button class="btn btn__minus">
-                        <img src="images/icon-minus.svg" alt="icon minus" />
-                      </button>
-      
-                      <span class="counter">1</span>
-      
-                      <button class="btn btn__plus">
-                        <img src="images/icon-plus.svg" alt="icon plus" />
-                      </button>
-                    </div>
-                    <button class="cta addToCart__cta">
-                      <img
-                        src="images/icon-cart.svg"
-                        alt="cart"
-                        class="addToCart__img"
-                      />
-                      Add to cart
-                    </button>
-                  </div>
-                </section>
-              </section>
-            </section>
-          </section>
-
-          
-				
-       -->
 			</section>
 		</div>
 	</body>
