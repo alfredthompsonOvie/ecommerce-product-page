@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | E-commerce product page | Alfred Thompson Ovie</title>
+		<style>
+			.notReady{
+				display: none;
+			}
+		</style>
+		<script>
+			const el = document.getElementsByTagName("html");
+			el[0].classList.add('notReady')
+		</script>
+  </head>
+  <body>
+    <div class="container" id="app">
+			<section class="container__contents">
+				<nav class="grid">
+					<section class="grid__contents">
+						<div class="hamburger">
+							<button class="openMenu">
+								<img src="images/icon-menu.svg" alt="" />
+							</button>
+							<button class="closeMenu hide">
+								<img src="images/icon-close.svg" alt="" />
+							</button>
+						</div>
+						<a href="/" class="brand">
+							<img src="images/logo.svg" alt="sneaker logo" />
+						</a>
+
+						<ul class="nav__list--mobile hide">
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Collections</span>
+									<span>Collections</span>
+								</a>
+							</li>
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Men</span>
+									<span>Men</span>
+								</a>
+							</li>
+
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link"> 
+									<span class="linkDecor">Women</span>
+									<span>Women</span>
+								</a>
+							</li>
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">About</span>
+									<span>About</span>
+								</a>
+							</li>
+							<li class="list__item--mobile">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Contact</span>
+									<span>Contact</span>
+								</a>
+							</li>
+						</ul>
+						<ul class="nav__list--desktop">
+							<li class="list__item">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Collections</span>
+									<span>Collections</span>
+								</a>
+							</li>
+							<li class="list__item">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Men</span>
+									<span>Men</span>
+								</a>
+							</li>
+
+							<li class="list__item">
+								<a href="#" class="nav__link"> 
+									<span class="linkDecor">Women</span>
+									<span>Women</span>
+								</a>
+							</li>
+							<li class="list__item">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">About</span>
+									<span>About</span>
+								</a>
+							</li>
+							<li class="list__item">
+								<a href="#" class="nav__link">
+									<span class="linkDecor">Contact</span>
+									<span>Contact</span>
+								</a>
+							</li>
+						</ul>
+
+						<section class="profile">
+							<button type="button" class="btn--cart">
+								<img src="images/icon-cart.svg" alt="cart button" />
+								<span class="numOfItems is--cartEmpty"></span>
+							</button>
+							<img
+								src="images/image-avatar.png"
+								alt="profile picture"
+								class="avatar"
+							/>
+							<section class="cartWrapper is--cartActive">
+								<section class="cart">
+									<h1>Cart</h1>
+									<section class="cart__details">
+										<p class="cart__empty--msg">Your cart is empty</p>
+										<ul class="cartList is--cartEmpty">
+											<!-- <li class="cartItem">
+                        <img src="images/image-product-1-thumbnail.jpg" alt="" class="product__img--cart">
+                        <section class="product--details">
+                          <p>Autumn Limited Edition...</p>
+                          <p class="cost">
+                            $125.00 x<span class="">3</span> <strong class="bill">$375.00</strong>
+                          </p>
+                        </section>
+                        <button type="button" class="delete">
+                          <img src="images/icon-delete.svg" alt="">
+                        </button>
+                      </li> -->
+										</ul>
+										<button
+											type="button"
+											class="cta checkout__cta is--cartEmpty"
+											id="checkout"
+										>
+											Checkout
+										</button>
+									</section>
+								</section>
+							</section>
+						</section>
+					</section>
+				</nav>
+				<main>
+					<section class="product">
+						<section class="product__contents">
+							<section class="product__preview">
+								<section class="product__img">
+									<img
+										src="images/image-product-1.jpg"
+										alt=""
+										class="showcase"
+										id="showcase"
+									/>
+								</section>
+								<section class="controls">
+									<button type="button" class="previous" id="previous">
+										<img src="images/icon-previous.svg" alt="next button" />
+									</button>
+									<button type="button" class="next" id="next">
+										<img src="images/icon-next.svg" alt="next button" />
+									</button>
+								</section>
+								<section
+									class="product__img__thumbnails"
+									id="product__img__thumbnails"
+								>
+									<section
+										class="product__img__thumbnail product__img__thumbnail--product is--active"
+										data-index="0"
+									>
+										<img
+											src="images/image-product-1-thumbnail.jpg"
+											alt=""
+											class="thumbnail"
+											data-index="0"
+										/>
+										<span></span>
+									</section>
+									<section
+										class="product__img__thumbnail product__img__thumbnail--product"
+										data-index="1"
+									>
+										<img
+											src="images/image-product-2-thumbnail.jpg"
+											alt=""
+											class="thumbnail"
+											data-index="1"
+										/>
+										<span></span>
+									</section>
+									<section
+										class="product__img__thumbnail product__img__thumbnail--product"
+										data-index="2"
+									>
+										<img
+											src="images/image-product-3-thumbnail.jpg"
+											alt=""
+											class="thumbnail"
+											data-index="2"
+										/>
+										<span></span>
+									</section>
+									<section
+										class="product__img__thumbnail product__img__thumbnail--product"
+										data-index="3"
+									>
+										<img
+											src="images/image-product-4-thumbnail.jpg"
+											alt=""
+											class="thumbnail"
+											data-index="3"
+										/>
+										<span></span>
+									</section>
+								</section>
+							</section>
+
+							<section class="product__description">
+								<small class="subheading">Sneaker Company</small>
+								<h1 class="heading">Fall Limited Edition Sneakers</h1>
+								<p class="product__details">
+									These low-profile sneakers are your perfect casual wear
+									companion. Featuring a durable rubber outer sole, they’ll
+									withstand everything the weather can offer.
+								</p>
+
+								<section class="product__price">
+									<p class="product__price--current">
+										<span class="price">$125.00</span>
+										<span class="discount">50%</span>
+									</p>
+									<p class="product__price--oldPrice">
+										<strike>$250.00</strike>
+									</p>
+								</section>
+								<div class="product__quantity">
+									<div class="quantity__counter">
+										<button class="btn btn__minus">
+											<img src="images/icon-minus.svg" alt="icon minus" />
+										</button>
+
+										<span class="counter">1</span>
+
+										<button class="btn btn__plus">
+											<img src="images/icon-plus.svg" alt="icon plus" />
+										</button>
+									</div>
+									<button class="cta addToCart__cta">
+										<img
+											src="images/icon-cart.svg"
+											alt="cart"
+											class="addToCart__img"
+										/>
+										Add to cart
+									</button>
+								</div>
+							</section>
+						</section>
+					</section>
+					<section class="lightBox">
+						<section class="lightBox__contents">
+							<button type="button" class="lightBox__closeBtn">
+								<img
+									src="images/icon-close.svg"
+									alt="icon close"
+									class="closeLightBox"
+								/>
+							</button>
+							<section class="product__preview">
+								<section class="product__img">
+									<img
+										src="images/image-product-1.jpg"
+										alt=""
+										class="showcase"
+										id="lightBoxShowcase"
+									/>
+								</section>
+								<section class="controls">
+									<button
+										type="button"
+										class="previous"
+										id="lightBoxPreviousBtn"
+									>
+										<img src="images/icon-previous.svg" alt="next button" />
+									</button>
+									<button type="button" class="next" id="lightBoxNextBtn">
+										<img src="images/icon-next.svg" alt="next button" />
+									</button>
+								</section>
+								<section
+									class="product__img__thumbnails"
+									id="product__img__thumbnails--lightBox"
+								>
+									<section
+										class="product__img__thumbnail product__img__thumbnail--lightBox is--active"
+										data-index="0"
+									>
+										<img
+											src="images/image-product-1-thumbnail.jpg"
+											alt=""
+											class="thumbnail lightBoxThumbnail"
+											data-index="0"
+										/>
+										<span></span>
+									</section>
+									<section
+										class="product__img__thumbnail product__img__thumbnail--lightBox"
+										data-index="1"
+									>
+										<img
+											src="images/image-product-2-thumbnail.jpg"
+											alt=""
+											class="thumbnail lightBoxThumbnail"
+											data-index="1"
+										/>
+										<span></span>
+									</section>
+									<section
+										class="product__img__thumbnail product__img__thumbnail--lightBox"
+										data-index="2"
+									>
+										<img
+											src="images/image-product-3-thumbnail.jpg"
+											alt=""
+											class="thumbnail lightBoxThumbnail"
+											data-index="2"
+										/>
+										<span></span>
+									</section>
+									<section
+										class="product__img__thumbnail product__img__thumbnail--lightBox"
+										data-index="3"
+									>
+										<img
+											src="images/image-product-4-thumbnail.jpg"
+											alt=""
+											class="thumbnail lightBoxThumbnail"
+											data-index="3"
+										/>
+										<span></span>
+									</section>
+								</section>
+							</section>
+						</section>
+					</section>
+				</main>
+			</section>
+		</div>
+		<script>
+			window.addEventListener("DOMContentLoaded", ()=>{
+				el[0].classList.remove('notReady')
+			})
+		</script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
